@@ -3,3 +3,10 @@
     width: 50px;
     background: red;
 }
+.header{
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    padding: 0px 15px;
+    align-items: center;
+}
