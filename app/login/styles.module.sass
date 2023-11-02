@@ -1,10 +1,49 @@
 .wrapper
-    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
     width: 100vw
     height: 100vh
     background: red
 .container
-    position: absolute
-    width: 300px
-    height: 500px
+    width: 402px
+    height: 396px
     background: #fff
+    border-radius: 10px
+    padding: 50px 46px
+.content
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    height: 100%
+    >span
+        font-weight: 700
+        font-size: 32px
+        color: #000
+    &__inputs
+        display: flex
+        flex-direction: column
+        >input
+            border: 1px solid #0000001A
+            background: #F8F8F8
+            width: 300px
+            height: 50px
+            border-radius: 5px
+            &:first-child
+                margin-bottom: 20px
+    >button
+        border: none
+        background: #3376A3
+        width: 300px
+        padding: 10px
+        border-radius: 5px
+    &__links
+        display: flex
+        justify-content: space-between
+        >a
+            font-size: 12px
+            font-weight: 400
+            line-height: 18px
+            letter-spacing: 0em
+            text-align: left
+            color: #777777
