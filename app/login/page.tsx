@@ -12,10 +12,14 @@ export default async function Login() {
   async function LoginReq() {
     const res = await axios
       .post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/login`, {
-        email: "qweqwe@dasd.dasd",
-        password: "qw3qwe",
+        email: "qwerty@qwerty.com",
+        password: "Google123@",
       })
-      .then((res) => console.log("respOOOnse", res));
+      .then(({ data: { token } }) => {
+        if (token) {
+          localStorage.setItem("token", token);
+        }
+      });
   }
   return (
     <div className={styles.wrapper}>
