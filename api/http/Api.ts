@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from "axios";
 export default class Api {
   instance = axios.create({ baseURL: process.env.NEXT_PUBLIC_BASE_URL });
 
-  request = async (url, method, data, options) => {
+  request = async (url, method, data, options)=> {
     const token = localStorage.getItem("token") ?? "";
     setAutorizationToken(this.instance, token);
     try {

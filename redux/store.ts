@@ -9,7 +9,8 @@ const saga = createSagaMiddleware()
 
 export const store = configureStore({
   reducer: { auth:authReducer },
-  middleware: [saga]
+  middleware: [saga],
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
 saga.run(authSaga)
