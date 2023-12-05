@@ -11,7 +11,7 @@ export default function Home() {
   const loginFunc = () => {
     dispatch(login("lolka"));
   };
-  const username = useAppSelector((state) => state.authReducer.value.username);
+  const username = useAppSelector((state) => state.auth.value.username);
   return (
     <div>
       <button onClick={loginFunc}>Lolka polka</button>
