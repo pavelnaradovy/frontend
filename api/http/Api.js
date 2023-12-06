@@ -8,6 +8,8 @@ export default class Api {
     setAutorizationToken(this.instance, token);
     try {
       const response = await this.instance[method](url, data, options);
+      console.log("response",response);
+      return response
     } catch (err) {
       throw err;
     }
