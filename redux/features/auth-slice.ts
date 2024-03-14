@@ -25,7 +25,7 @@ type CredentialsType = {
 export const auth = createSlice({
     name: "auth", initialState, reducers: {
         logOut: () => { return initialState },
-        login: (state, action: PayloadAction<{ email: string, password: string }>) => {
+        login: (state, action: PayloadAction<{ email: string, password: string, redirect: any}>) => {
             return {
                 value: {
                     isAuth: true, username: action.payload, isModerator: false

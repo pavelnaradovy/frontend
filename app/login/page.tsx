@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { login } from "@/redux/features/auth-slice";
+import { redirect } from "next/navigation";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +15,9 @@ const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   async function LoginReq() {
-    dispatch(login({ email, password }));
+    dispatch(
+      login({ email, password, redirect: () => redirect("/redirect2") })
+    );
   }
   return (
     <div className={styles.wrapper}>
