@@ -18,10 +18,14 @@ const initialState = {
     } as AuthState
 } as InitialState
 
+type CredentialsType = {
+    email: string, password: string
+}
+
 export const auth = createSlice({
     name: "auth", initialState, reducers: {
         logOut: () => { return initialState },
-        login: (state, action: PayloadAction<string>) => {
+        login: (state, action: PayloadAction<{ email: string, password: string }>) => {
             return {
                 value: {
                     isAuth: true, username: action.payload, isModerator: false

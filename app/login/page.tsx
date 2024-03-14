@@ -3,23 +3,18 @@
 import { useState } from "react";
 import styles from "./styles.module.sass";
 import Link from "next/link";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { login } from "@/redux/features/auth-slice";
 
-export default async function Login() {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const dispatch = useDispatch<AppDispatch>();
+
   async function LoginReq() {
-    const res = await axios
-      .post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/login`, {
-        email: "qwerty@qwerty.com",
-        password: "Google123@",
-      })
-      .then(({ data: { token } }) => {
-        if (token) {
-          localStorage.setItem("token", token);
-        }
-      });
+    dispatch(login({ email, password }));
   }
   return (
     <div className={styles.wrapper}>
@@ -48,4 +43,5 @@ export default async function Login() {
       </div>
     </div>
   );
-}
+};
+export default Login;

@@ -1,22 +1,25 @@
 import { all, call, put, take, takeEvery } from "redux-saga/effects"
 import { resource } from "@/api/http"
+import { redirect } from "next/navigation";
 
-
+// import { REDIRECT_ACTION_TYPE } from './actionTypes';
 function* loginRequest(): any {
     while (true) {
-        const x = yield take('auth/login')
+        const { payload } = yield take('auth/login')
+
+
 
         try {
-            const xxl = yield call(resource.post, `api/auth/login`, { email: "qwerty@qwerty.com", password: "Google123@" })
+            const xxl = yield call(resource.post, `api/auth/login`, { email: payload.email, password: payload.password })
 
-            console.log("xxlxxlxxlxxl", xxl);
+            console.log("xxlxxlxxlxxl", xxl.data);
 
-            if (xxl) {
-                localStorage.setItem('token', token)
+            if (xxl.data.token) {
+                // localStorage.setItem('token', token)
                 // yield put(setAuth(!!token))
                 // yield put(getUser())
                 // payload.setSubmitting(false)
-                // yield put(navigate('/'))
+                yield put(redirect("/page2"))
             }
         } catch (err) {
             // const message = err?.response?.data?.message
