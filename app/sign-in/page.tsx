@@ -24,7 +24,11 @@ export default function SignIn() {
         <span className={styles.subTitle}>Email</span>
         <input value={email} onChange={(e) => setEmail(e.target.value)} />
         <span className={styles.subTitle}>Password</span>
-        <input value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <button type="submit">Sign-in</button>
       </form>
     </div>
