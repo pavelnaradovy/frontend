@@ -15,13 +15,15 @@ function* loginRequest(): any {
 
 
             if (data.token) {
-                // localStorage.setItem('token', token)
+                localStorage.setItem('token', token)
                 // yield put(setAuth(!!token))
                 // yield put(getUser())
                 // payload.setSubmitting(false)
                 console.log(redirect);
 
-                yield put(redirect("/page2"))
+                redirect()
+
+                // yield put(redirect("/page2"))
             }
         } catch (err) {
           
